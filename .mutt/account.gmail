@@ -1,0 +1,35 @@
+# -*- mode: mutt; -*-
+
+# http://crunchbanglinux.org/wiki/howto/howto_setup_mutt_with_gmail_imap
+set reverse_name
+set from = "bluephoenix47@gmail.com"
+set my_from = "bluephoenix47@gmail.com"
+source ~/.mutt/secret-gmail-alternates
+set hostname = "gmail.com"
+set realname = "William J. Bowman"
+set folder = "imaps://imap.gmail.com:993"
+set spoolfile = "+INBOX"
+set postponed = "+[Gmail]/Drafts"
+
+set imap_user=bluephoenix47@gmail.com
+mailboxes =INBOX =[Gmail]/Spam
+
+set my_gmail_pw="`pass 'google.com/apps/mutt'`"
+set imap_pass=$my_gmail_pw
+set smtp_pass=$my_gmail_pw
+
+unset record
+
+#set trash = "imaps://imap.gmail.com/[Gmail]/Trash"
+set smtp_url = "smtp://bluephoenix47@smtp.gmail.com:587/"
+macro index gi "<change-folder>=INBOX<enter>" "Go to inbox"
+macro index ga "<change-folder>=[Gmail]/All Mail<enter>" "Go to all mail"
+macro index gs "<change-folder>=[Gmail]/Sent Mail<enter>" "Go to sent mail"
+macro index gd "<change-folder>=[Gmail]/Drafts<enter>" "Go to drafts"
+macro index D "s=[Gmail]/Trash<enter><enter>" "Send to trash"
+
+# Theme
+# source ~/.mutt/themes/blackback # ice and kevin are also good
+
+# GPG
+source ~/.mutt/crypto.gmail

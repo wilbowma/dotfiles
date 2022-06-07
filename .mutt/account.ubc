@@ -1,0 +1,23 @@
+# -*- mode: mutt; -*-
+
+unset reverse_name
+set from = "wilbowma@cs.ubc.ca"
+set my_from = "wilbowma@cs.ubc.ca"
+set hostname = "cs.ubc.ca"
+set realname = "William J. Bowman"
+set folder = "imaps://mail.cs.ubc.ca:993/"
+set spoolfile = "+INBOX"
+set postponed = "=drafts"
+set record = "=sent"
+
+set my_pw="`pass cs.ubc.ca | head -n 1`"
+set imap_user=wilbowma
+set imap_pass=$my_pw
+set smtp_pass=$my_pw
+
+#TODO: Abstract
+set smtp_url = "smtps://wilbowma@mail.cs.ubc.ca:465"
+macro index D "s=archive<enter><enter>" "Send to Archive"
+
+# GPG
+#source ~/.mutt/crypto.wjb

@@ -1,0 +1,86 @@
+# -*- mode: mutt; -*-
+
+# http://www.df7cb.de/blog/2010/Using_multiple_IMAP_accounts_with_Mutt.html
+# Common options
+folder-hook 'gmail.com' 'source $HOME/.mutt/account.gmail'
+folder-hook 'cs.ubc.ca' 'source $HOME/.mutt/account.ubc'
+folder-hook 'williamjbowman.com' 'source $HOME/.mutt/account.wjb'
+#folder-hook '~/.maildir-wjb' 'source $HOME/.mutt/account.wjb2'
+
+macro index <f2> '<change-folder>imaps://williamjbowman.com:993<enter>'
+macro index <f3> '<change-folder>imaps://mail.cs.ubc.ca:993<enter>'
+macro index <f4> '<change-folder>imaps://imap.gmail.com:993<enter>'
+#macro index <f4> '<change-folder>~/.maildir-wjb/INBOX<enter>'
+set editor=`echo \$EDITOR`
+
+# Default account
+source $HOME/.mutt/account.ubc
+# No longer send from ccs; only my own mail.
+#set reverse_name=yes
+set use_envelope_from=yes
+
+macro index gi "<change-folder>=INBOX<enter>" "Go to inbox"
+macro index gg "<Home>" "Go to first"
+macro index GG "<End>" "Go to last"
+
+set header_cache = $HOME/.mutt/cache/headers
+set message_cachedir = $HOME/.mutt/cache/bodies
+set certificate_file = $HOME/.mutt/certificates
+
+bind editor <space> noop
+
+set move = no
+set imap_keepalive = 900
+
+# contacts
+set query_command = "khard email -p '%s'"
+bind editor <Tab> complete-query
+bind editor ^T complete
+macro index,pager a "<pipe-message>khard add-email<return>" "Add the sender address to contacts"
+
+# check current imap folder every 10 seconds
+set timeout=10
+# check mailboxes every 30 seconds
+set mail_check=30
+
+# Forwarding attachments automagically
+set mime_forward=yes
+set mime_forward_rest=yes
+
+# MIME
+
+auto_view text/html
+alternative_order text/plain text/html
+
+# Header stuff
+ignore "Authentication-Results:"
+ignore "DomainKey-Signature:"
+ignore "DKIM-Signature:"
+hdr_order Date From To Cc
+
+ignore *
+unignore from: date subject to cc
+unignore x-mailing-list: posted-to:
+unignore x-mailer:
+
+# For better looks
+set markers=no # don't put '+' at the beginning of wrapped lines
+set pager_index_lines= 5 # how large is the index window?
+set strict_threads # Don’t thread messages by Subject
+set sort = 'threads'
+set sort_aux = 'last-date-received'
+
+# Sidebar
+set sidebar_visible = no
+set sidebar_width = 20
+
+bind index CP sidebar-prev
+bind index CN sidebar-next
+bind index CO sidebar-open
+bind pager CP sidebar-prev
+bind pager CN sidebar-next
+bind pager CO sidebar-open
+
+source $HOME/.mutt/themes/blackback # ice and kevin are also good
+source $HOME/.mutt/hooks
+source $HOME/.mutt/lists

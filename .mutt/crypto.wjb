@@ -1,0 +1,13 @@
+# -*- mode: mutt; -*-
+source $HOME/.mutt/crypto.main
+
+set pgp_sign_as=wjb@williamjbowman.com
+# automatically sign all outcoming messages
+# set crypt_autosign
+# sign only replies to signed messages
+set crypt_replysign
+
+# don't autoencrypt by default
+send-hook . 'unset crypt_autoencrypt'
+# if sending to someone in the gpg group, autoencrypt
+send-hook '!~G ^%C gpg' 'set crypt_autoencrypt'

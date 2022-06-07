@@ -1,0 +1,7 @@
+# -*- mode: mutt; -*-
+subscribe dev@racket-lang.org
+subscribe users@lists.racket-lang.org
+subscribe users@racket-lang.org
+subscribe types-announce@lists.seas.upenn.edu
+subscribe types@lists.seas.upenn.edu
+subscribe s3ql@googlegroups.com

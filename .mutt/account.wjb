@@ -1,0 +1,31 @@
+# -*- mode: mutt; -*-
+
+unset reverse_name
+set from = "wjb@williamjbowman.com"
+set my_from = "wjb@williamjbowman.com"
+source ~/.mutt/secret-wjb-alternates
+set hostname = "williamjbowman.com"
+set realname = "William J. Bowman"
+set folder = "imaps://williamjbowman.com:993/"
+set spoolfile = "+INBOX"
+set postponed = "=drafts"
+set record = "=sent"
+#set imap_check_subscribed
+
+mailboxes =INBOX =types-announce =types =racket =racket-devs =junk
+
+set my_wjb_pw="`pass williamjbowman.com/mail/'wjb@williamjbowman.com'`"
+set imap_user=wjb@williamjbowman.com
+set imap_pass=$my_wjb_pw
+set smtp_pass=$my_wjb_pw
+
+#set trash = "imaps://imap.gmail.com/[Gmail]/Trash"
+#TODO: Abstract
+set smtp_url = "smtp://wjb@williamjbowman.com@williamjbowman.com:587"
+macro index D "s=archive<enter><enter>" "Send to Archive"
+
+# Theme
+#source ~/.mutt/themes/blackback # ice and kevin are also good
+
+# GPG
+source ~/.mutt/crypto.wjb

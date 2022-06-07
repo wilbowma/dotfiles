@@ -1,0 +1,20 @@
+# -*- mode: mutt; -*-
+
+# Only use signature on sends that are not replys.
+reply-hook . "set signature='\nWilliam J. Bowman'"
+send-hook '! ~s [Rr]e:' 'set signature="$HOME/.mutt/signature"'
+
+# Source all groups files.
+source `echo $HOME/.mutt/groups.*`
+
+# Detect inline PGP messages
+message-hook '!~g !~G ~b "^-----BEGIN PGP (SIGNED )?MESSAGE"' 'exec check-traditional-pgp'
+
+# s3ql list is a stickler about bottom-posting
+# reply-hook '~C s3ql@googlegroups\.com' 'set editor="vim + %s"'
+# send-hook '~C s3ql@googlegroups\.com' 'set editor="vim + %s"'
+# reply-hook '!(~C s3ql@googlegroups\.com)' 'set editor="vim %s"'
+# send-hook '!(~C s3ql@googlegroups\.com)' 'set editor="vim %s"'
+# # other lists probably appreciate this too
+# reply-hook '~l' 'set editor="vim + %s"'
+# reply-hook '!~l' 'set editor="vim %s"'

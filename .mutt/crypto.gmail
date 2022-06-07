@@ -1,0 +1,9 @@
+# -*- mode: mutt; -*-
+
+source $HOME/.mutt/crypto.main
+
+set pgp_sign_as=wjb@williamjbowman.com
+# automatically sign all outcoming messages
+# set crypt_autosign
+# sign only replies to signed messages
+set crypt_replysign
