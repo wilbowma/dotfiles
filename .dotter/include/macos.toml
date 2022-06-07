@@ -1,0 +1,8 @@
+[default.files]
+".gitconfig-macos" = "~/.gitconfig.local"
+LaunchAgents = "~/Library/LaunchAgents"
+
+[default.variables]
+pinentry = "/usr/local/bin/pinentry-mac"
+home = "/Users/wilbowma"
+SSH_AUTH_SOCK = "~/.gnupg/S.gpg-agent.ssh"

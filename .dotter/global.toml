@@ -1,0 +1,50 @@
+[helpers]
+
+[default]
+depends = []
+
+[default.files]
+".dotter" = { target = "~/.dotter", type="symbolic", recurse=false }
+".aspell.en.prepl" = "~/.aspell.en.prepl"
+".aspell.en.pws" = "~/.aspell.en.pws"
+bin = { target="~/bin", type="symbolic", recurse=false }
+".coqrc" = "~/.coqrc"
+"jabref.xml" = "~/jabref.xml"
+".mailcap" = "~/.mailcap"
+".mutt" = "~/.mutt"
+mutt-themes = { target="~/.mutt/themes", type="symbolic", recurse=false }
+".muttrc" = "~/.muttrc"
+".unison" = "~/.unison"
+".spacemacs" = { target="~/.spacemacs", type="symbolic" }
+".urlview" = "~/.urlview"
+"fish/completions" = { target="~/.config/fish/completions", type="symbolic", recurse=false }
+"fish/functions" = { target="~/.config/fish/functions", type="symbolic", recurse=false }
+"fish/config.fish" = "~/.config/fish/config.fish"
+"fish/fish_variables" = "~/.config/fish/fish_variables"
+"fish/conf.d" = { target="~/.config/fish/conf.d", type="symbolic", recurse=false }
+vdirsyncer = "~/.config/vdirsyncer"
+ssh-config = "~/.ssh/config"
+"secure/ssh" = { target = "~/.ssh", type="symbolic", recurse=false }
+".gnupg" = "~/.gnupg"
+"secure/gnupg-private-keys-v1.d" = { target="~/.gnupg/private-keys-v1.d", type="symbolic", recurse=false }
+"secure/gnupg" = "~/.gnupg"
+".gitconfig" = "~/.gitconfig"
+borg = "~/.config/borg"
+".language-tool-rules.xml" = "~/.language-tool-rules.xml"
+".languagetool.cfg" = "~/.languagetool.cfg"
+
+[default.variables]
+
+## Optional
+[systemd.files]
+"systemd" = { target="~/.config/systemd", type="symbolic", recurse=false }
+
+## Disabled
+[rclone.files]
+rclone = "~/.config/rclone"
+
+[mbsync.files]
+mbsyncrc = "~/.mbsyncrc"
+
+[textidote.files]
+".textidote" = "~/.textidote"

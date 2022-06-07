@@ -1,0 +1,9 @@
+includes = []
+packages = ["default", "systemd"]
+
+[files]
+
+[variables]
+pinentry = "/home/wilbowma/bin/pinentry-kwallet.py"
+home = "/home/wilbowma"
+SSH_AUTH_SOCK = "/run/user/1000/gnupg/S.gpg-agent.ssh"
