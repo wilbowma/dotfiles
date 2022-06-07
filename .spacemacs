@@ -71,7 +71,7 @@ values."
    ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages
    '(nyan-mode pass
-     langtool evil-numbers proof-general
+     evil-numbers proof-general
      scribble-mode agda-editor-tactics
      flycheck-languagetool
      rainbow-delimiters nasm-mode
@@ -356,6 +356,9 @@ you should place your code here."
 
   (load-file (let ((coding-system-for-read 'utf-8)) (shell-command-to-string "agda-mode locate")))
 
+  ;; ------------------------------------------------------------------------
+  ;; style/grammar/etc checking, particularly in LaTeX
+
   (flycheck-define-checker tex-textidote
     "A LaTeX grammar/spelling checker using textidote.
     See https://github.com/sylvainhalle/textidote"
@@ -371,7 +374,6 @@ you should place your code here."
 
   (setq flycheck-checkers (append flycheck-checkers (list 'tex-textidote)) )
 
-  (setq langtool-http-server-host "localhost" langtool-http-server-port 8081)
   (setq flycheck-languagetool-url "http://localhost:8081")
   (setq flycheck-languagetool-language "en-CA")
   (setq flycheck-languagetool-active-modes '(latex-mode plain-tex-mode scribble-mode))
@@ -379,6 +381,8 @@ you should place your code here."
   (flycheck-add-next-checker 'languagetool 'tex-textidote)
   (flycheck-add-next-checker 'tex-textidote 'tex-lacheck)
   (flycheck-add-next-checker 'tex-lacheck 'tex-chktex)
+
+  ;; ------------------------------------------------------------------------
 
   ;; load beluga
   (load-file "~/workspace/beluga/tools/beluge-mode.el")
