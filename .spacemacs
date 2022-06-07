@@ -590,7 +590,8 @@ configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
 
-  (evil-want-Y-yank-to-eol nil)
+  ;(evil-want-Y-yank-to-eol nil)
+
   (flyspell-mode-off)
   (global-column-enforce-mode)
   (add-hook 'prog-mode-hook 'auto-fill-mode)
@@ -632,7 +633,7 @@ before packages are loaded."
   ;; ------------------------------------------------------------------------
 
   ;; load beluga
-  (load-file "~/workspace/beluga/tools/beluge-mode.el")
+  ;(load-file "~/workspace/beluga/tools/beluge-mode.el")
 
   ;; evil numbers
   (global-set-key (kbd "C-a") 'evil-numbers/inc-at-pt)
