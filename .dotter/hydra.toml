@@ -7,3 +7,4 @@ packages = ["default", "systemd"]
 pinentry = "/home/wilbowma/bin/pinentry-kwallet.py"
 home = "/home/wilbowma"
 SSH_AUTH_SOCK = "/run/user/1000/gnupg/S.gpg-agent.ssh"
+open = "xdg-open"
