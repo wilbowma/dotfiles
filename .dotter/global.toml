@@ -7,7 +7,7 @@ depends = []
 ".dotter" = { target = "~/.dotter", type="symbolic", recurse=false }
 ".aspell.en.prepl" = "~/.aspell.en.prepl"
 ".aspell.en.pws" = "~/.aspell.en.pws"
-bin = { target="~/bin", type="symbolic", recurse=false }
+bin = "~/bin"
 ".coqrc" = "~/.coqrc"
 "jabref.xml" = "~/jabref.xml"
 ".mailcap" = "~/.mailcap"
