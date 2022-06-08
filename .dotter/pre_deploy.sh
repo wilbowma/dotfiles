@@ -35,21 +35,23 @@ fi
 ## ------------------------------------------------------------------------
 
 if [ `uname -s` = "Darwin" ]; then
-    LANGUAGE_TOOL_DICT_PATH="/usr/local/Cellar/languagetool/*/libexec/org/languagetool/resource/en/hunspell/spelling_custom.txt"
+    LANGUAGE_TOOL_DICT_PATH=$(ls /usr/local/Cellar/languagetool/*/libexec/org/languagetool/resource/en/hunspell/spelling_custom.txt)
     LANGUAGE_TOOL_GRAMMAR_PATH=$(ls /usr/local/Cellar/languagetool/*/libexec/org/languagetool/rules/en/grammar.xml)
+    MAYBE_SUDO=
 fi
 if [ `uname -s` = "Linux" ]; then
     LANGUAGE_TOOL_DICT_PATH="/usr/share/languagetool/org/languagetool/resource/en/hunspell/spelling_custom.txt"
     LANGUAGE_TOOL_GRAMMAR_PATH=/usr/share/languagetool/org/languagetool/rules/en/grammar.xml
+    MAYBE_SUDO=sudo
 fi
 
 if [ ! -L "$LANGUAGE_TOOL_DICT_PATH" ]; then
     echo "Patching langtool dictionary; require sudo elevation."
-    sudo ln -sf ~/.aspell.en.pws "$LANGUAGE_TOOL_DICT_PATH"
+    $MAYBE_SUDO ln -sf ~/.aspell.en.pws "$LANGUAGE_TOOL_DICT_PATH"
 fi
 
 if patch --force --dry-run -p1 $LANGUAGE_TOOL_GRAMMAR_PATH ~/webdav/dotfiles/.dotter/language-tool-rules.patch; then
     sed -i "s|HOME|$HOME|" ~/webdav/dotfiles/.dotter/language-tool-rules.patch
     echo "Patching grammar.xml; require sudo elevation."
-    sudo patch -p1 $LANGUAGE_TOOL_GRAMMAR_PATH ~/webdav/dotfiles/.dotter/language-tool-rules.patch || true
+    $MAYBE_SUDO patch -p1 $LANGUAGE_TOOL_GRAMMAR_PATH ~/webdav/dotfiles/.dotter/language-tool-rules.patch || true
 fi
