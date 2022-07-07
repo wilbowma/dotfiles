@@ -1,9 +1,11 @@
 [default.files]
 ".gitconfig-macos" = "~/.gitconfig.local"
 LaunchAgents = "~/Library/LaunchAgents"
+".conf.launchd" = "~/.conf.launchd"
 
 [default.variables]
 pinentry = "/usr/local/bin/pinentry-mac"
 home = "/Users/wilbowma"
 SSH_AUTH_SOCK = "~/.gnupg/S.gpg-agent.ssh"
 open = "open"
+agda-stdlib-path = "/usr/local/lib/agda/standard-library.agda-lib"

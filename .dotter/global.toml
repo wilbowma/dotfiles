@@ -4,6 +4,7 @@
 depends = []
 
 [default.files]
+"agda" = "~/.agda"
 ".dotter" = { target = "~/.dotter", type="symbolic", recurse=false }
 ".aspell.en.prepl" = "~/.aspell.en.prepl"
 ".aspell.en.pws" = "~/.aspell.en.pws"
@@ -34,6 +35,7 @@ borg = "~/.config/borg"
 ".languagetool.cfg" = "~/.languagetool.cfg"
 
 [default.variables]
+agda-stdlib-path = ""
 
 ## Optional
 [systemd.files]
