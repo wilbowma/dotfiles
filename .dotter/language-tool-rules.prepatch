@@ -4,7 +4,7 @@
  -->
  
  <!DOCTYPE rules [
-+    <!ENTITY UserRules SYSTEM "file:////home/wilbowma/.language-tool-rules.xml">
++    <!ENTITY UserRules SYSTEM "file:////{{HOME}}/.language-tool-rules.xml">
      <!ENTITY apostrophe "['’`´‘ʻ]">
      <!ENTITY quote '["“”„]'>
      <!ENTITY nbsp  "&#x00A0;"> <!-- no-break space -->

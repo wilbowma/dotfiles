@@ -50,8 +50,8 @@ if [ ! -L "$LANGUAGE_TOOL_DICT_PATH" ]; then
     $MAYBE_SUDO ln -sf ~/.aspell.en.pws "$LANGUAGE_TOOL_DICT_PATH"
 fi
 
-if patch --force --dry-run -p1 $LANGUAGE_TOOL_GRAMMAR_PATH ~/webdav/dotfiles/.dotter/language-tool-rules.patch > /dev/null; then
-    sed -i "s|HOME|$HOME|" ~/webdav/dotfiles/.dotter/language-tool-rules.patch
+if patch --force --dry-run -p1 $LANGUAGE_TOOL_GRAMMAR_PATH ~/webdav/dotfiles/.dotter/language-tool-rules.prepatch > /dev/null; then
+    sed "s|HOME|$HOME|" ~/webdav/dotfiles/.dotter/language-tool-rules.prepatch > ~/webdav/dotfiles/.dotter/language-tool-rules.patch
     echo "Patching grammar.xml; require sudo elevation."
     $MAYBE_SUDO patch -p1 $LANGUAGE_TOOL_GRAMMAR_PATH ~/webdav/dotfiles/.dotter/language-tool-rules.patch || true
 fi
