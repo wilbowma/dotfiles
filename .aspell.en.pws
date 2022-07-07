@@ -1,4 +1,4 @@
-personal_ws-1.1 en 313 
+personal_ws-1.1 en 315 
 ADT
 ADTs
 AFAICT
@@ -93,6 +93,7 @@ PGO
 PGOs
 PILS
 PLDI
+PLT
 POPL
 PTS
 Plotkin
@@ -161,6 +162,7 @@ compositionality
 compositionally
 computability
 computable
+contractum
 contrapositive
 cryptographic
 cumulativity
@@ -234,11 +236,13 @@ miscommunicate
 miscompilation
 mispredicted
 mistrains
+mitigations
 mixfix
 modeling
 modularity
 monad
 monadic
+monads
 monoid
 monoidal
 monomorphic
