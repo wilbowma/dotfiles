@@ -598,6 +598,10 @@ before packages are loaded."
   (add-hook 'text-mode-hook 'auto-fill-mode)
   (add-hook 'prog-mode-hook 'flycheck-mode)
   (add-hook 'text-mode-hook 'flycheck-mode)
+
+  (add-to-list 'auto-mode-alist
+               '("mutt-.*" . mail-mode))
+
   (flycheck-languagetool-setup)
 
   (setq-default spacemacs-show-trailing-whitespace 't)
@@ -625,11 +629,16 @@ before packages are loaded."
 
   (setq flycheck-languagetool-url "http://localhost:8081")
   (setq flycheck-languagetool-language "en-CA")
-  (setq flycheck-languagetool-active-modes '(latex-mode plain-tex-mode scribble-mode))
+  (setq flycheck-languagetool-active-modes
+        '(latex-mode plain-tex-mode
+          scribble-mode
+          markdown-mode
+          mail-mode
+          text-mode))
 
-  (flycheck-add-next-checker 'languagetool 'tex-textidote)
-  (flycheck-add-next-checker 'tex-textidote 'tex-lacheck)
-  (flycheck-add-next-checker 'tex-lacheck 'tex-chktex)
+  ;(flycheck-add-next-checker 'languagetool 'tex-textidote)
+  ;(flycheck-add-next-checker 'tex-textidote 'tex-lacheck)
+  ;(flycheck-add-next-checker 'tex-lacheck 'tex-chktex)
 
   ;; ------------------------------------------------------------------------
 
